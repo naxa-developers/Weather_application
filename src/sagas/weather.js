@@ -4,8 +4,8 @@ import getWeatherData from '@Services/weather';
 
 export function* weatherRequest(action) {
   try {
-    const { payload } = action;
-    const response = yield call(getWeatherData, payload);
+    const { location } = action;
+    const response = yield call(getWeatherData, location);
     yield put(weatherActions.getWeatherDataSuccess({ data: response.data }));
   } catch (error) {
     yield put(weatherActions.getWeatherDataFailure());
@@ -13,7 +13,7 @@ export function* weatherRequest(action) {
 }
 
 function* weatherWatcher() {
-  yield takeLatest(Types.WEATHER_REQUEST, weatherRequest);
+  yield takeLatest(Types.GET_WEATHER_DATA_REQUEST, weatherRequest);
 }
 
 export default weatherWatcher;

@@ -1,23 +1,24 @@
-import React, { useEffect, useState } from 'react';
+/* eslint-disable no-console */
+import React, { useState } from 'react';
 import './weather.scss';
-import WeatherActions from '@Actions/weather';
-import weatherWatcher from '@Sagas/weather';
+import { Creators } from '@Actions/weather';
 
-import { connect, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Weatherapp = () => {
   const [weatherdata, setWeatherdata] = useState(null);
   const [location, setLocation] = useState('kathmandu');
   const dispatch = useDispatch();
-  // const [loading, setLoading] = useState(false);
+
+  const { getWeatherDataRequest } = Creators;
 
   const getData = async () => {
-    dispatch(weatherWatcher);
+    console.log(location);
+    dispatch(getWeatherDataRequest(location));
   };
 
-  useEffect(() => {
-    getData();
-  });
+  const climate = useSelector((state) => state.weather.weatherdata);
+  console.log(climate);
   return (
     <>
       <div className="Whole">
@@ -46,6 +47,8 @@ const Weatherapp = () => {
               <i className="fa fa-sun" />
             </div>
             <h3>Sunny</h3>
+            {/* useSelector */}
+            {climate}
             <div className="temperature">
               <h1>28 & deg;C</h1>
             </div>
@@ -65,21 +68,4 @@ const Weatherapp = () => {
   );
 };
 
-// Weatherapp.propTypes = {
-//   WeatherRequest: PropTypes.func.isRequired,
-//   loading: PropTypes.bool.isRequired,
-// };
-
-const mapStateToProps = (state) => {
-  const {
-    weatherdata: { loading },
-  } = state;
-  return {
-    loading,
-  };
-};
-const mapDispatchToProps = (dispatch) => ({
-  WeatherRequest: (payload) => dispatch(WeatherActions.WeatherRequest(payload)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Weatherapp);
+export default Weatherapp;

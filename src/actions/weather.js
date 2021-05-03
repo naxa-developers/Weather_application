@@ -1,9 +1,9 @@
 import { createActions } from 'reduxsauce';
 
 export const { Types, Creators } = createActions({
-  getWeatherDataRequest: ['cityname'],
+  getWeatherDataRequest: ['location'],
   getWeatherDataSuccess: ['payload'],
-  getWeatherDataFailure: ['payload'],
+  getWeatherDataFailure: null,
 });
 
 export default Creators;

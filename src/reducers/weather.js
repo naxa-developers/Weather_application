@@ -6,21 +6,21 @@ const initialState = {
   weatherdata: {},
 };
 
-const WeatherRequest = (state) => ({ ...state, loading: true });
+const getWeatherDataRequest = (state) => ({ ...state, loading: true });
 
-const WeatherSuccess = (state, action) => {
+const getWeatherDataSuccess = (state, action) => {
   return { ...state, loading: false, weatherdata: action.payload.data };
 };
 
-const WeatherFailure = (state) => ({
+const getWeatherDataFailure = (state) => ({
   ...state,
   loading: false,
 });
 
 const weatherReducer = createReducer(initialState, {
-  [Types.WEATHER_REQUEST]: WeatherRequest,
-  [Types.WEATHER_SUCCESS]: WeatherSuccess,
-  [Types.WEATHER_FAILURE]: WeatherFailure,
+  [Types.GET_WEATHER_DATA_REQUEST]: getWeatherDataRequest,
+  [Types.GET_WEATHER_DATA_SUCCESS]: getWeatherDataSuccess,
+  [Types.GET_WEATHER_DATA_FAILURE]: getWeatherDataFailure,
 });
 
 export default weatherReducer;
