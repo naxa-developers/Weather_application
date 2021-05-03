@@ -1,0 +1,84 @@
+body {
+    
+   
+    background: linear-gradient(45deg, #fae9e7 30%, #E1E0E0 90%);
+    background-size: cover;
+  }
+
+  .Whole{
+    text-align: center;
+  }
+
+  .card {
+    position: relative;
+    width: 100%;
+    height: 70%;
+    margin: auto;
+    margin-bottom: 20px;
+    margin-top: 1%;
+    background: linear-gradient(45deg, #FD7665 30%, #E1E0E0 90%);
+    background-size: cover;
+    box-shadow: 5px 10px 5px 10px #fff;
+    padding: 20px;
+  }
+  .title {
+    color: #fff;
+    font-weight: 800;
+    font-size: 30px;
+  }
+
+
+  .search-form {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .search-form input {
+    width: 90%;
+    height: 40px;
+    padding: 5px;
+    border: 1px solid #bea6a6;
+    background: #a39c9c;
+    color: rgb(219, 207, 207);
+    border-radius: 10px;
+    margin: 0 auto;
+  }
+  .search-form button {
+    width: 8%;
+    height: 40px;
+    padding: 5px;
+    border: none;
+    border-radius: 10px !important;
+    background: linear-gradient(45deg, #422d2b 30%, #1f1c18 90%);
+    font-weight: 400;
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+  }
+  .search-form button:hover {
+    background: linear-gradient(45deg, #FFAFBD 30%, #ffc3a0 90%);
+    color: #000000;
+  }
+
+
+  .main-container h4 {
+    font-size: 25px;
+    font-weight: 800;
+  }
+ 
+  .main-container .weather-icon i {
+    width: 100px;
+    height: 100px;
+    animation: iconanimation 3s infinite;
+  }
+
+  
+@keyframes iconanimation {
+  from {
+    transform: scale(0.5,0.5);
+  }
+  to {
+    transform: scale(1,1);
+  }
+}
