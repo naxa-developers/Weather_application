@@ -66,8 +66,12 @@ body {
     font-size: 25px;
     font-weight: 800;
   }
+
+  .feellike h4{
+    font-size: 15px;
+  }
  
-  .main-container .weather-icon i {
+  .main-container .weather-icon img {
     width: 100px;
     height: 100px;
     animation: iconanimation 3s infinite;
